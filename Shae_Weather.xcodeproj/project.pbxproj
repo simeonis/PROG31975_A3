@@ -12,6 +12,8 @@
 		F05C5852273C387300AEB29C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F05C5851273C387300AEB29C /* Assets.xcassets */; };
 		F05C5855273C387300AEB29C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F05C5854273C387300AEB29C /* Preview Assets.xcassets */; };
 		F05C585E273C4E3000AEB29C /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05C585D273C4E3000AEB29C /* LocationHelper.swift */; };
+		F05C5860273C5F7800AEB29C /* WeatherHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05C585F273C5F7800AEB29C /* WeatherHelper.swift */; };
+		F05C5862273C67F300AEB29C /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05C5861273C67F300AEB29C /* Weather.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		F05C5854273C387300AEB29C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F05C5856273C387300AEB29C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F05C585D273C4E3000AEB29C /* LocationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
+		F05C585F273C5F7800AEB29C /* WeatherHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherHelper.swift; sourceTree = "<group>"; };
+		F05C5861273C67F300AEB29C /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,7 @@
 				F05C5851273C387300AEB29C /* Assets.xcassets */,
 				F05C5856273C387300AEB29C /* Info.plist */,
 				F05C5853273C387300AEB29C /* Preview Content */,
+				F05C5861273C67F300AEB29C /* Weather.swift */,
 			);
 			path = Shae_Weather;
 			sourceTree = "<group>";
@@ -76,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				F05C585D273C4E3000AEB29C /* LocationHelper.swift */,
+				F05C585F273C5F7800AEB29C /* WeatherHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -151,7 +157,9 @@
 			files = (
 				F05C585E273C4E3000AEB29C /* LocationHelper.swift in Sources */,
 				F05C5850273C387100AEB29C /* ContentView.swift in Sources */,
+				F05C5860273C5F7800AEB29C /* WeatherHelper.swift in Sources */,
 				F05C584E273C387100AEB29C /* Shae_WeatherApp.swift in Sources */,
+				F05C5862273C67F300AEB29C /* Weather.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

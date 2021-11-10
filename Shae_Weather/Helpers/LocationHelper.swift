@@ -10,12 +10,12 @@ import CoreLocation
 import Contacts
 import MapKit
 
-class LocationHelper: NSObject, ObservableObject, CLLocationManagerDelegate{
+class LocationHelper: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var authorizationStatus: CLAuthorizationStatus = .notDetermined
     @Published var currentLocation: CLLocation?
     
     private let locationManager = CLLocationManager()
-    private var lastSeenLocation: CLLocation?
+    private var lastSeenLocation : CLLocation?
     
     override init() {
         super.init()
@@ -78,9 +78,10 @@ class LocationHelper: NSObject, ObservableObject, CLLocationManagerDelegate{
         
         if locations.last != nil{
             self.currentLocation = locations.last!
-        }else{
+        } else {
             self.currentLocation = locations.first
         }
+        
         print(#function, "current location: \(self.currentLocation!)")
     }
     
