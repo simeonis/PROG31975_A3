@@ -13,6 +13,10 @@ struct Shae_WeatherApp: App {
     let locationHelper = LocationHelper()
     let weatherHelper = WeatherHelper()
     
+    init() {
+        self.locationHelper.setWeatherHelper(helper: weatherHelper)
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()

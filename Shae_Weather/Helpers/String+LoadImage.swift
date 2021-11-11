@@ -9,6 +9,9 @@ import SwiftUI
 
 extension String {
     func load() -> UIImage {
+        // Empty string
+        if (self.count <= 0) { return UIImage() }
+    
         do {
             let url = "https:" + self
             guard let url = URL(string: url) else { return UIImage() }
@@ -16,7 +19,7 @@ extension String {
             let data: Data = try Data(contentsOf: url)
             return UIImage(data: data) ?? UIImage()
         } catch {
-            // print("Unable to convert URL to UIImage")
+            print("Unable to convert URL to UIImage")
         }
         
         return UIImage()

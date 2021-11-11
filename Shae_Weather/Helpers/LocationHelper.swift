@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 import CoreLocation
 import Contacts
 import MapKit
@@ -16,6 +17,7 @@ class LocationHelper: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     private let locationManager = CLLocationManager()
     private var lastSeenLocation : CLLocation?
+    private var weatherHelper : WeatherHelper?
     
     override init() {
         super.init()
@@ -24,8 +26,6 @@ class LocationHelper: NSObject, ObservableObject, CLLocationManagerDelegate {
             self.locationManager.delegate = self
             self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         }
-        
-        self.checkPermission()
         
         if (CLLocationManager.locationServicesEnabled() && ( self.authorizationStatus == .authorizedAlways || self.authorizationStatus == .authorizedWhenInUse)){
             self.locationManager.startUpdatingLocation()
@@ -62,6 +62,16 @@ class LocationHelper: NSObject, ObservableObject, CLLocationManagerDelegate {
         return (self.locationManager.authorizationStatus == .authorizedAlways || self.locationManager.authorizationStatus == .authorizedWhenInUse)
     }
     
+    func setWeatherHelper(helper : WeatherHelper) {
+        self.weatherHelper = helper
+    }
+    
+    func updateWeather() {
+        if (self.weatherHelper != nil && self.currentLocation != nil) {
+            self.weatherHelper!.updateWeather(coords: self.currentLocation!.coordinate)
+        }
+    }
+    
     deinit {
         locationManager.stopUpdatingLocation()
     }
@@ -83,6 +93,8 @@ class LocationHelper: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
         
         print(#function, "current location: \(self.currentLocation!)")
+        
+        self.updateWeather()
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

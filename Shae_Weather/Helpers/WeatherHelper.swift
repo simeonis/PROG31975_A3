@@ -7,24 +7,19 @@
 
 import Foundation
 import CoreLocation
+import SwiftUI
 
 class WeatherHelper : ObservableObject {
-    @Published var currentWeather : Weather = Weather()
+    @Published var currentWeather = Weather()
     
     private let apiKey = "5920f032140b48cc92d201224211011"
     private let apiUrl = "https://api.weatherapi.com/v1/current.json?key="
     
     func updateWeather(coords : CLLocationCoordinate2D) {
-        updateWeather(lat: coords.latitude, long: coords.longitude)
+        fetchDataFromApi(api : apiUrl + apiKey + "&q=\(coords.latitude),\(coords.longitude)")
     }
     
-    func updateWeather(lat : Double, long : Double) {
-        fetchDataFromApi(api : apiUrl + apiKey + "&q=\(lat),\(long)")
-    }
-    
-    func fetchDataFromApi(api : String) {
-        print("API: \(api)")
-        
+    private func fetchDataFromApi(api : String) {
         guard let api = URL(string: api) else {
             return
         }

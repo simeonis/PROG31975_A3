@@ -11,12 +11,6 @@ struct ContentView: View {
     @EnvironmentObject var locationHelper : LocationHelper
     @EnvironmentObject var weatherHelper : WeatherHelper
     
-    func updateWeather() -> Void {
-        if (self.locationHelper.currentLocation != nil) {
-            self.weatherHelper.updateWeather(coords: self.locationHelper.currentLocation!.coordinate)
-        }
-    }
-    
     var body: some View {
         VStack {
             if (self.locationHelper.hasPermission()) {
@@ -90,17 +84,12 @@ struct ContentView: View {
                     .background(Color.white)
                     .cornerRadius(10)
                     
-                    // TEMPORARY
-                    Button(action: updateWeather) {
-                        Text("Update Weather")
-                    }
-                    
                     Spacer()
                 } else {
                     Text("Obtaining user location...")
                 }
             } else {
-                Text("Location permission denied. Please check your settings.")
+                Text("Location permission denied. Please check your app privacy settings.")
             }
         }
         .padding(16)
