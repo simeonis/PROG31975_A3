@@ -9,7 +9,7 @@ import Foundation
 import CoreLocation
 
 class WeatherHelper : ObservableObject {
-    @Published var currentWeather : Weather?
+    @Published var currentWeather : Weather = Weather()
     
     private let apiKey = "5920f032140b48cc92d201224211011"
     private let apiUrl = "https://api.weatherapi.com/v1/current.json?key="
@@ -44,7 +44,6 @@ class WeatherHelper : ObservableObject {
                             
                             DispatchQueue.main.async {
                                 self.currentWeather = decodedWeather
-                                print("Weather: \(self.currentWeather!.temp_c)")
                             }
                         } else {
                             print(#function, "No JSON data received")
